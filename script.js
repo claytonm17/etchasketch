@@ -20,7 +20,7 @@ const clear = document.getElementById('clear-button');
 // Actual etch-a-sketch functionality
 cells.forEach(cell => {
     cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = 'black';
+        cell.style.backgroundColor = drawColor;
     });
 });
 
@@ -30,3 +30,33 @@ clear.addEventListener('click', () => {
         cell.style.backgroundColor = 'white';
     });
 });
+
+// Initial draw color set to black
+let drawColor = 'black';
+
+// Colored buttons assignment
+const black = document.getElementById('black-button');
+const white = document.getElementById('white-button');
+const random = document.getElementById('random-button');
+
+// Colored buttons functionality
+black.addEventListener('click', () => {
+    drawColor = 'black';
+});
+white.addEventListener('click', () => {
+    drawColor = 'white';
+});
+random.addEventListener('click', () => {
+    randomColorSet()
+});
+
+// Random functionality
+function randomColorGeneration() {
+let randomHex = (Math.random() * 0xfffff * 100000).toString(16);
+let randomColor = ('#' + randomHex.slice(0,6));
+return randomColor;
+};
+function randomColorSet() {
+    let randomColorGen = randomColorGeneration();
+    drawColor = randomColorGen;
+};
