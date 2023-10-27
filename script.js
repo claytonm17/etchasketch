@@ -22,7 +22,6 @@ sizeInput.addEventListener('input', (event) => {
 setSize.addEventListener('click', () => {
     deleteCanvas();
     createCanvas(userValue);
-    console.log(userValue)
 });
 
 function deleteCanvas() {
@@ -103,7 +102,6 @@ function randomColorGeneration() {
     const randomR = Math.floor(Math.random() * 256);
     const randomG = Math.floor(Math.random() * 256);
     const randomB = Math.floor(Math.random() * 256);
-    console.log(`rgb(${randomR}, ${randomG}, ${randomB})`);
     return `rgb(${randomR}, ${randomG}, ${randomB})`; 
 };
 function randomColorSet() {
