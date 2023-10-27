@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Your code here
+
+
 // Initial values
 let defaultDrawColor = 'black';
 let defaultSize = 16;
@@ -18,6 +22,7 @@ sizeInput.addEventListener('input', (event) => {
 setSize.addEventListener('click', () => {
     deleteCanvas();
     createCanvas(userValue);
+    console.log(userValue)
 });
 
 function deleteCanvas() {
@@ -40,18 +45,26 @@ function createCanvas(size) {
         cell.className = 'cell';
         canvas.insertAdjacentElement('beforeend', cell)
     };
+    etchASketch();
 };
 
-// Building canvas
-createCanvas(size);
-
 // Assigning cells
-const cells = document.querySelectorAll('.cell');
+let cells = document.querySelectorAll('.cell');
 
 // Assigning clear button
 const clear = document.getElementById('clear-button');
 
 // Actual etch-a-sketch functionality
+function etchASketch() {
+    cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = drawColor;
+        });
+    });
+}
+
+// Primary function
 cells.forEach(cell => {
     cell.addEventListener('mouseover', () => {
         cell.style.backgroundColor = drawColor;
@@ -96,3 +109,9 @@ function randomColorGeneration() {
 function randomColorSet() {
     drawColor = randomColorGeneration();
 };
+
+// Building canvas
+createCanvas(size);
+etchASketch();
+
+});
