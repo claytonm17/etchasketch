@@ -10,17 +10,21 @@
     <div class="title">
         <h1>Etch-a-Sketch</h1>
     </div>
-    <div class="contents">
-        <div class="canvas"></div>
-        <div class="buttons">
-            <button id="black-button">Black</button>
-            <button id="white-button">Eraser</button>
-            <button id="random-button">Random</button>
-            <button id="clear-button">Clear</button>
-        </div>
-        <div>
-            <input type="text" placeholder="Size of Canvas" id="size">
-            <button id="set-size">Set Size</button>
+    <div class="box">
+        <div class="contents">
+            <div class="canvas"></div>
+            <div class="sidebar">
+                <div class="buttons">
+                    <button id="black-button">Black</button>
+                    <button id="white-button">Eraser</button>
+                    <button id="random-button">Random</button>
+                    <button id="clear-button">Clear</button>
+                </div>
+                <div class="resize">
+                    <input type="text" placeholder="Size of Canvas" id="size">
+                    <button id="set-size">Set Size</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
