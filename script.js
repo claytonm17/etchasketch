@@ -1,8 +1,9 @@
-// Initial draw color set to black
-let drawColor = 'black';
+// Initial values
+let defaultDrawColor = 'black';
+let defaultSize = 16;
 
-// Initial canvas size
-let size = 16
+let drawColor = defaultDrawColor;
+let size = defaultSize;
 
 // Allowing for asjustment of canvas size
 const sizeInput = document.getElementById('size');
@@ -84,11 +85,13 @@ random.addEventListener('click', () => {
     randomColorSet()
 });
 
-// Random functionality
+// Random functionality using RGB
 function randomColorGeneration() {
-let randomHex = (Math.random() * 0xfffff * 100000).toString(16);
-let randomColor = ('#' + randomHex.slice(0,6));
-return randomColor;
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    console.log(`rgb(${randomR}, ${randomG}, ${randomB})`);
+    return `rgb(${randomR}, ${randomG}, ${randomB})`; 
 };
 function randomColorSet() {
     drawColor = randomColorGeneration();
